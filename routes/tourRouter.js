@@ -1,5 +1,8 @@
 const express = require('express')
 const router = express.Router()
+const auth = require('../middleware/auth');
+
+
 
 const {
     getAllTours,
@@ -16,6 +19,8 @@ router.use(express.json());
 // GET /tours
 router.get("/", getAllTours);
 
+
+router.use(auth);
 // POST /tours
 router.post("/", createTour);
 

@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const morgan = require('morgan');
+
 const tourRouter = require('./routes/tourRouter')
 const userRouter = require('./routes/userRouter')
 
@@ -8,6 +10,7 @@ app.use(express.json());
 
 // ROUTES
 // GET /tours
+app.use(morgan('tiny'));
 app.use("/tours", tourRouter);
 app.use("/users", userRouter);
 
